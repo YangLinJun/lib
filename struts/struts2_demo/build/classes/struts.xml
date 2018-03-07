@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- package是包，是struts提供的对于action的管理方式 -->
+	<!-- name是package的唯一标示符 -->
+	<!-- extends 继承 继承会将被继承包的action与result都继承到,而所有包都需要继承struts-default这个一个包 -->
+	<!-- struts-default这一个包是struts提供给我们的一个默认包,里面包含了很多已经定义好的拦截器与result -->
+	<package name="hello" extends="struts-default">
+		<!-- action 是指一个具体的动作 -->
+		<!-- class 指处理这一具体动作的类 -->
+		<!-- method 指处理该动作的类的方法,默认为execute -->
+		<action name="hi" class="com.education.action.HelloWorldAction"
+			method="execute">
+			<!-- result 返回结果 -->
+			<!-- name 指执行方法的返回值,默认为success -->
+			<!-- result中间的值是最终跳转到的页面 -->
+			<!-- result的默认跳转方式为转发,如果需要重定向,则增加一个属性 type="redirect";重定向到某个action type="redirectAction" -->
+			<result>/success.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+	</package>
+</struts>
